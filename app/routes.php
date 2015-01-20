@@ -1,11 +1,17 @@
 <?php
 
-Route::pattern('index','index\.html');
-Route::pattern('postName', '[0-9a-zA-Z_]+');
+/*
+|--------------------------------------------------------------------------
+| Application Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register all of the routes for an application.
+| It's a breeze. Simply tell Laravel the URIs it should respond to
+| and give it the Closure to execute when that URI is requested.
+|
+*/
 
-//index
-Route::get('/',array('as'=>'index','uses'=>'HomeController@showIndex'));
-Route::get('/{index?}',array('as'=>'index','uses'=>'HomeController@showIndex'));
-
-//bieming
-Route::get('/{postName}',array('uses'=>'HomeController@showPost'));
+Route::get('/', function()
+{
+	return View::make('hello');
+});

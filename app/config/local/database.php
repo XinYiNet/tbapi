@@ -23,15 +23,24 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'slog_main',
-			'username'  => 'root',
-			'password'  => '123456',
+			'database'  => 'homestead',
+			'username'  => 'homestead',
+			'password'  => 'secret',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
-			'prefix'    => 'slog_',
-		)
+			'prefix'    => '',
+		),
 
-		
+		'pgsql' => array(
+			'driver'   => 'pgsql',
+			'host'     => 'localhost',
+			'database' => 'homestead',
+			'username' => 'homestead',
+			'password' => 'secret',
+			'charset'  => 'utf8',
+			'prefix'   => '',
+			'schema'   => 'public',
+		),
 
 	),
 

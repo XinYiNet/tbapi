@@ -2,35 +2,22 @@
 
 class HomeController extends BaseController {
 
-	public function __construct(){
-		
-	}
-    /*
-     * indexTpl
-     */
-	public function showIndex()
+	/*
+	|--------------------------------------------------------------------------
+	| Default Home Controller
+	|--------------------------------------------------------------------------
+	|
+	| You may wish to use controllers instead of, or in addition to, Closure
+	| based routes. That's great! Here is an example controller method to
+	| get you started. To route to this controller, just add the route:
+	|
+	|	Route::get('/', 'HomeController@showWelcome');
+	|
+	*/
+
+	public function showWelcome()
 	{
-        return $this->View('home.home');
-
+		return View::make('hello');
 	}
-
-    public function showPost($postName){
-		//$postName = self::doFilter('show_post.post_name',$postName);
-        $postId = Config::get('post_alias.'.$postName,$postName);
-		$postModel = new postModel();
-		$post = $postModel->getPost($postId);
-		$post = self::doFilter('show_post.postInfo',$post);
-		if(!$post){
-			$this->View404('不存在的文章');
-		}
-		$termModel = new termModel();
-		$cat = $termModel->getTerm($post->term_id);
-		if($cat){
-			array_merge($cat, $post);
-		}	
-        return $this->View('home.post',array('postId'=>$postId,'post'=>$post));
-    }
-
-
 
 }
